@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block tituloPagina %}
+Informaçoes Sobre o Pet
+{% endblock tituloPagina %}
+
+{% block content %}
+<div class="row">
+
+  <div class="col-md-4">
+    <div class="thumbnail">
+        <img src="{{pet.foto_capa.url}}" style="width:100%">
+        <div class="caption">
+        </div>
+    </div>
+  </div>
+    <div class="col-md-8">
+<ul class="list-group">
+  <li class="list-group-item">Raça: {{pet.raca}}</li>
+  <li class="list-group-item">Cor: {{pet.cor}}</li>
+  <li class="list-group-item">Onde foi encontrado: {{pet.Lugar_Onde_Foi_Achado}}</li>
+  <li class="list-group-item">Quando foi encontrado: {{pet.Quando_Foi_Encontrado}}</li>
+  <li class="list-group-item">Nome do Amigo que encontrou o pet: {{pet.Usuario.nome}}</li>
+  <li class="list-group-item">Tel. de contato: {{pet.Usuario.telefone}}</li>
+</ul>
+    </div>
+
+</div>
+{% endblock content %}
+
+

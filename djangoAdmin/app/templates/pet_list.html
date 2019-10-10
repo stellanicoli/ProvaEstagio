@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block tituloPagina %}
+Cachorros Perdidos
+{% endblock tituloPagina %}
+
+{% block content %}
+<div class="row">
+<form method="get">
+    <div class="col-lg-12">
+    <div class="input-group">
+      <input type="text" class="form-control" name="busca" placeholder="Buscar Raças">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">Pesquisar</button>
+      </span>
+    </div>
+    </div>
+</form>
+</div>
+<br>
+<div class="row">
+    {% for pet in lista %}
+    <div class="col-md-4">
+        <div class="thumbnail">
+            <a href="{% url 'perfil_pet' pk=pet.pk %}">
+                <img src="{{pet.foto_capa.url}}" style="width:100%">
+                <div class="caption">
+                    <p>{{pet.raca}} - Foi encontrado: {{pet.Lugar_Onde_Foi_Achado}} - Na Data: {{pet.Quando_Foi_Encontrado}}</p>
+                </div>
+            </a>
+        </div>
+    </div>
+ {% endfor %}
+</div>
+
+{% endblock content %}
